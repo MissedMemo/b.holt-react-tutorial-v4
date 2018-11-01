@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FEM React Tutorial v4</title>
+    <link href="./style.css" rel='stylesheet' >
   </head>
   <body>
     <div id="root">render failed!</div>
     <script src="https://unpkg.com/react@16.6.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.6.0/umd/react-dom.development.js"></script>
     <script>
-      const React = require('react')
-      const ReactDOM = require('react-dom')
-
-      const App = ({greeting}) => <div>{ greeting }</div>
-
+      const App = () => React.createElement( 'div', {},
+        React.createElement( 'h1', {}, 'Hello, React!' )
+      )
       ReactDOM.render(
-        document.getElementById('root'),
-        <App greeting='Hi, React!' />
+        React.createElement(App),
+        document.getElementById('root')
       )
     </script>
   </body>
