@@ -1,8 +1,18 @@
 import React, { Fragment } from "react";
 import { render } from "react-dom";
 import Pet from "./Pet.jsx";
+import petsAPI from "petfinder-client";
+
+const petFinder = petsAPI({
+  key: process.env.API_KEY,
+  secret: process.env.API_SECRET
+});
 
 class App extends React.Component {
+  componentDidMount() {
+    petFinder.breed.list({ animal: "dog" }).then(console.log, console.error);
+  }
+
   render() {
     return (
       <Fragment>
