@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { render } from "react-dom";
 import Pet from "./Pet.jsx";
 
@@ -8,29 +8,15 @@ class App extends React.Component {
   }
 
   render() {
-    return React.createElement("div", {}, [
-      React.createElement(
-        "h1",
-        { onClick: this.handleTitleClick },
-        "Adoptable Pets..."
-      ),
-      React.createElement(Pet, {
-        name: "Fido",
-        animal: "dog",
-        breed: "mutt"
-      }),
-      React.createElement(Pet, {
-        name: "Saunders",
-        animal: "cat",
-        breed: "siamese"
-      }),
-      React.createElement(Pet, {
-        name: "Fritz",
-        animal: "fish",
-        breed: "goldfish"
-      })
-    ]);
+    return (
+      <Fragment>
+        <h1 onClick={this.handleTitleClick}>Adoptible Pets...</h1>
+        <Pet name="Fido" animal="dog" breed="mutt" />
+        <Pet name="Saunders" animal="cat" breed="siamese" />
+        <Pet name="Fritz" animal="fish" breed="goldfish" />
+      </Fragment>
+    );
   }
 }
 
-render(React.createElement(App), document.getElementById("root"));
+render(<App />, document.getElementById("root"));
