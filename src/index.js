@@ -1,14 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-
-const Pet = props => {
-  const { name, animal, breed } = props;
-  return React.createElement("div", {}, [
-    React.createElement("h2", {}, name),
-    React.createElement("h2", {}, animal),
-    React.createElement("h2", {}, breed)
-  ]);
-};
+import Pet from "./Pet";
 
 class App extends React.Component {
   handleTitleClick() {
