@@ -11,6 +11,8 @@ const petFinder = petsAPI({
 const resolvePets = pets =>
   pets & pets.pet || Array.isArray(pets.pet) ? pets.pet : [pets.pet];
 
+const resolveBreed = breed => (Array.isArray(breed) ? breed.join(", ") : breed);
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,7 @@ class App extends React.Component {
               key={pet.id}
               name={pet.name}
               animal={pet.animal}
-              breed={pet.breeds.breed}
+              breed={resolveBreed(pet.breeds.breed)}
               media={pet.media}
               location={`${pet.contact.city}, ${pet.contact.state}`}
             />
