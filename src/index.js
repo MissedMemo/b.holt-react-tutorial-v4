@@ -21,7 +21,7 @@ class App extends React.Component {
 
   componentDidMount() {
     petFinder.pet
-      .find({ output: "full", location: "Seattle, WA" })
+      .find({ output: "full", location: "San Francisco, CA" })
       .then(data => {
         const pets = resolvePets(data.petfinder.pets);
         if (pets) {
@@ -34,14 +34,16 @@ class App extends React.Component {
     return (
       <Fragment>
         <h1>Adoptible Pets...</h1>
-        <pre>
-          <code>{JSON.stringify(this.state, null, 4)}</code>
-        </pre>
-        {/*}
-        <Pet name="Fido" animal="dog" breed="mutt" />
-        <Pet name="Saunders" animal="cat" breed="siamese" />
-        <Pet name="Fritz" animal="fish" breed="goldfish" />
-        */}
+        <div>
+          {this.state.pets.map(pet => (
+            <Pet
+              key={pet.id}
+              name={pet.name}
+              animal={pet.animal}
+              breed={pet.breeds.breed}
+            />
+          ))}
+        </div>
       </Fragment>
     );
   }
