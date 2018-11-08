@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 
 const resolveImageUrl = media => {
   if (media && media.photos && media.photos.photo) {
@@ -9,11 +10,11 @@ const resolveImageUrl = media => {
 
 class Pet extends Component {
   render() {
-    const { name, animal, breed, location, media } = this.props;
+    const { name, animal, breed, location, media, id } = this.props;
     const url = resolveImageUrl(media) || "";
 
     return (
-      <div className="pet">
+      <Link to={`details/${id}`} className="pet">
         <div className="imageContainer">
           <img src={url} alt={name} />
         </div>
@@ -23,7 +24,7 @@ class Pet extends Component {
             {animal} - {breed} - {location}
           </h2>
         </div>
-      </div>
+      </Link>
     );
   }
 }

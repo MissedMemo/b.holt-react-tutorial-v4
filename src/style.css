@@ -2,10 +2,16 @@ body {
   background-color: lightblue;
 }
 
+header {
+  font-size: 32px;
+  text-decoration: none;
+}
+
 .pet {
   background-color: lightgreen;
   display: flex;
   margin: 5px;
+  text-decoration: none;
 }
 
 .imageContainer {

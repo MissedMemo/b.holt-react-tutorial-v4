@@ -42,6 +42,7 @@ class Results extends Component {
             breed={resolveBreed(pet.breeds.breed)}
             media={pet.media}
             location={`${pet.contact.city}, ${pet.contact.state}`}
+            id={pet.id}
           />
         ))}
       </div>
