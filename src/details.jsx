@@ -10,15 +10,11 @@ const petFinder = petsAPI({
 const resolveBreed = breed => (Array.isArray(breed) ? breed.join(", ") : breed);
 
 class Details extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true
-    };
-  }
+  state = {
+    loading: true
+  };
 
   componentDidMount() {
-    console.log("id:", this.props.id);
     petFinder.pet
       .get({ output: "full", id: this.props.id })
       .then(data => {
