@@ -8,9 +8,9 @@ class SearchParams extends Component {
   };
   render() {
     return (
-      <div className="searchParams">
+      <div className="search-params">
         <label htmlFor="location">
-          Location
+          Location:
           <input
             id="location"
             value={this.state.location}
