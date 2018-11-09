@@ -18,8 +18,9 @@ class Details extends Component {
   }
 
   componentDidMount() {
+    console.log("id:", this.props.id);
     petFinder.pet
-      .find({ output: "full", id: this.props.id })
+      .get({ output: "full", id: this.props.id })
       .then(data => {
         const pet = data.petfinder.pet;
         const breed = resolveBreed(pet.breeds.breed);
@@ -39,13 +40,14 @@ class Details extends Component {
   }
 
   render() {
-    const { name, animal, breed, location, loading } = this.state;
+    const { loading, name, animal, breed, location, description } = this.state;
     return loading ? (
       <h1>Loading...</h1>
     ) : (
       <div>
         <h1>{name}</h1>
         <h2>{animal - breed - location}</h2>
+        <p>{description}</p>
       </div>
     );
   }
