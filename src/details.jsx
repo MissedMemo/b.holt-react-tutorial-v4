@@ -44,7 +44,7 @@ class Details extends Component {
     return loading ? (
       <h1>Loading...</h1>
     ) : (
-      <div>
+      <div className="details">
         <h1>{name}</h1>
         <h2>
           {animal} - {breed} - {location}

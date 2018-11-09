@@ -32,3 +32,15 @@ img {
 .search {
   padding: 10px;
 }
+
+.details {
+  background-color: aliceblue;
+  padding: 14px;
+  text-align: center;
+}
+
+.details p {
+  background-color: lightgreen;
+  border-radius: 5px;
+  padding: 10px;
+}
