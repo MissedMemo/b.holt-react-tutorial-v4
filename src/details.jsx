@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import petsAPI from "petfinder-client";
 import { navigate } from "@reach/router";
+import Carousel from "./carousel.jsx";
 
 const petFinder = petsAPI({
   key: process.env.API_KEY,
@@ -36,16 +37,27 @@ class Details extends Component {
   }
 
   render() {
-    const { loading, name, animal, breed, location, description } = this.state;
+    const {
+      loading,
+      name,
+      animal,
+      breed,
+      location,
+      description,
+      media
+    } = this.state;
     return loading ? (
       <h1>Loading...</h1>
     ) : (
       <div className="details">
-        <h1>{name}</h1>
-        <h2>
-          {animal} - {breed} - {location}
-        </h2>
-        <p>{description}</p>
+        <Carousel media={media} />
+        <div>
+          <h1>{name}</h1>
+          <h2>
+            {animal} - {breed} - {location}
+          </h2>
+          <p>{description}</p>
+        </div>
       </div>
     );
   }
