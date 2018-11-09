@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { Router, Link } from "@reach/router";
 import Results from "./results.jsx";
 import Details from "./details.jsx";
+import SearchParams from "./search-params.jsx";
 
 class App extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class App extends React.Component {
         <Router>
           <Results path="/" />
           <Details path="/details/:id" />
+          <SearchParams path="/search-params" />
         </Router>
       </Fragment>
     );
