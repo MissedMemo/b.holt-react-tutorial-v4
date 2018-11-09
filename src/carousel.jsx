@@ -17,6 +17,11 @@ class Carousel extends Component {
     return { photos };
   }
 
+  handleIndexClick = e => {
+    const active = +e.target.dataset.index; // coerce to number
+    this.setState({ active });
+  };
+
   render() {
     const { photos, active } = this.state;
 
@@ -27,9 +32,12 @@ class Carousel extends Component {
           {photos.map((photo, index) => {
             const classname = index === active ? "active" : "";
             return (
+              /* eslint-disable-next-line */
               <img
+                onClick={this.handleIndexClick}
                 key={photo.value}
                 src={photo.value}
+                data-index={index}
                 className={classname}
                 alt="animal thumbnail"
               />
