@@ -6,12 +6,19 @@ class SearchParams extends Component {
     animal: "",
     breed: ""
   };
+
+  handleLocationChange = e => {
+    const location = e.target.value;
+    this.setState({ location });
+  };
+
   render() {
     return (
       <div className="search-params">
         <label htmlFor="location">
           Location:
           <input
+            onChange={this.handleLocationChange}
             id="location"
             value={this.state.location}
             placeholder="Location"
