@@ -22,7 +22,7 @@ header a {
   background-color: red;
 }
 
-img {
+.pet img {
   height: 100px;
   width: 100px;
   border-radius: 50%;
@@ -43,4 +43,22 @@ img {
   background-color: lightgreen;
   border-radius: 5px;
   padding: 10px;
+}
+
+.carousel {
+  border: 1px solid blue;
+  border-radius: 3px;
+  display: flex;
+}
+
+.carousel img {
+  height: 320px;
+  padding: 20px;
+}
+
+.carousel-smaller img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 20px;
 }
