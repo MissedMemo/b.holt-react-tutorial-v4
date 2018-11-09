@@ -13,12 +13,9 @@ const resolvePets = pets =>
 const resolveBreed = breed => (Array.isArray(breed) ? breed.join(", ") : breed);
 
 class Results extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pets: []
-    };
-  }
+  state = {
+    pets: []
+  };
 
   componentDidMount() {
     petFinder.pet
