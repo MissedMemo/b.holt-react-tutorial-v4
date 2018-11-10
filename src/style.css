@@ -71,12 +71,14 @@ header a {
 }
 
 .search-params label {
+  display: block;
   background-color: lightgray;
   border-radius: 6px;
   padding: 10px;
 }
 
-.search-params input {
+.search-params input,
+.search-params select {
   font-size: 16px;
   margin-left: 10px;
 }
