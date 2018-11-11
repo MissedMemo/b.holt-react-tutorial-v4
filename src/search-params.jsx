@@ -24,6 +24,11 @@ class SearchParams extends Component {
     this.setState({ animal, breed: "" }, this.getBreeds());
   };
 
+  handleBreedChange = e => {
+    const breed = e.target.value;
+    this.setState({ breed });
+  };
+
   getBreeds() {
     if (this.state.animal) {
       petFinder.breed.list({ animal: this.state.animal }).then(data => {
@@ -32,9 +37,9 @@ class SearchParams extends Component {
           data.petfinder.breeds &&
           Array.isArray(data.petfinder.breeds.breed)
         ) {
-          const breed = data.petfinder.breeds.breed;
-          console.log("setting breed to:", breed);
-          this.setState({ breed });
+          const breeds = data.petfinder.breeds.breed;
+          console.log("setting breeds to:", breeds);
+          this.setState({ breeds });
         } else {
           this.setState({ breeds: [] });
         }
@@ -80,7 +85,7 @@ class SearchParams extends Component {
             onChange={this.handleBreedChange}
             onBlur={this.handleBreedChange}
             value={this.state.breed}
-            disabled={this.state.breed.length === 0}
+            disabled={this.state.breeds.length === 0}
           >
             <option />
             {this.state.breeds.map(breed => (
