@@ -79,6 +79,7 @@ header a {
 
 .search-params input,
 .search-params select {
+  width: 300px;
   font-size: 16px;
   margin-left: 10px;
 }
