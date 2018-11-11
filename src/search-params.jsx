@@ -1,11 +1,17 @@
 import React, { Component } from "react";
-import { ANIMALS } from "petfinder-client";
+import petsAPI, { ANIMALS } from "petfinder-client";
+
+const petFinder = petsAPI({
+  key: process.env.API_KEY,
+  secret: process.env.API_SECRET
+});
 
 class SearchParams extends Component {
   state = {
     location: "San Francisco, CA",
     animal: "",
-    breed: ""
+    breed: "",
+    breeds: []
   };
 
   handleLocationChange = e => {
@@ -15,8 +21,28 @@ class SearchParams extends Component {
 
   handleAnimalChange = e => {
     const animal = e.target.value;
-    this.setState({ animal });
+    this.setState({ animal, breed: "" }, this.getBreeds());
   };
+
+  getBreeds() {
+    if (this.state.animal) {
+      petFinder.breed.list({ animal: this.state.animal }).then(data => {
+        if (
+          data.petfinder &&
+          data.petfinder.breeds &&
+          Array.isArray(data.petfinder.breeds.breed)
+        ) {
+          const breed = data.petfinder.breeds.breed;
+          console.log("setting breed to:", breed);
+          this.setState({ breed });
+        } else {
+          this.setState({ breeds: [] });
+        }
+      });
+    } else {
+      this.setState({ breeds: [] });
+    }
+  }
 
   render() {
     return (
@@ -47,7 +73,7 @@ class SearchParams extends Component {
           </select>
         </label>
 
-        <lavel htmlFor="breed">
+        <label htmlFor="breed">
           Breed:
           <select
             id="breed"
@@ -55,8 +81,16 @@ class SearchParams extends Component {
             onBlur={this.handleBreedChange}
             value={this.state.breed}
             disabled={this.state.breed.length === 0}
-          />
-        </lavel>
+          >
+            <option />
+            {this.state.breeds.map(breed => (
+              <option key={breed} value={breed}>
+                {breed}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button>Submit</button>
       </div>
     );
   }
