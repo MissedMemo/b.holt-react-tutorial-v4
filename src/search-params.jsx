@@ -46,6 +46,17 @@ class SearchParams extends Component {
             ))}
           </select>
         </label>
+
+        <lavel htmlFor="breed">
+          Breed:
+          <select
+            id="breed"
+            onChange={this.handleBreedChange}
+            onBlur={this.handleBreedChange}
+            value={this.state.breed}
+            disabled={this.state.breed.length === 0}
+          />
+        </lavel>
       </div>
     );
   }
