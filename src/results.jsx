@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import SearchBox from "./search-box.jsx";
 import Pet from "./pet.jsx";
 import petsAPI from "petfinder-client";
 
@@ -31,6 +32,7 @@ class Results extends Component {
   render() {
     return (
       <div className="search">
+        <SearchBox />
         {this.state.pets.map(pet => (
           <Pet
             key={pet.id}
