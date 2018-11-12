@@ -38,8 +38,7 @@ class SearchParams extends Component {
           Array.isArray(data.petfinder.breeds.breed)
         ) {
           const breeds = data.petfinder.breeds.breed;
-          console.log("setting breeds to:", breeds);
-          this.setState({ breeds });
+          this.setState({ breeds }, console.log("breeds set to:", breeds));
         } else {
           this.setState({ breeds: [] });
         }
