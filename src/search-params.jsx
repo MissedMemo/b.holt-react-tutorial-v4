@@ -21,7 +21,7 @@ class SearchParams extends Component {
 
   handleAnimalChange = e => {
     const animal = e.target.value;
-    this.setState({ animal, breed: "" }, this.getBreeds());
+    this.setState({ animal, breed: "" }, this.getBreeds);
   };
 
   handleBreedChange = e => {
@@ -38,7 +38,7 @@ class SearchParams extends Component {
           Array.isArray(data.petfinder.breeds.breed)
         ) {
           const breeds = data.petfinder.breeds.breed;
-          this.setState({ breeds }, console.log("breeds set to:", breeds));
+          this.setState({ breeds });
         } else {
           this.setState({ breeds: [] });
         }
