@@ -68,13 +68,8 @@ header a {
   background-color: lightblue;
   border-radius: 6px;
   padding: 20px;
-}
-
-.search-params label {
-  display: block;
-  background-color: lightgray;
-  border-radius: 6px;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .search-params input,
@@ -82,4 +77,10 @@ header a {
   width: 300px;
   font-size: 16px;
   margin-left: 10px;
+  margin-bottom: 12px;
+}
+
+.search-params button {
+  font-size: 16px;
+  align-self: center;
 }
