@@ -68,7 +68,7 @@ class SearchParams extends Component {
             onBlur={this.handleAnimalChange}
             value={this.state.animal}
           >
-            <option />
+            <option value="">Any Kind</option>
             {ANIMALS.map(animal => (
               <option key={animal} value={animal}>
                 {animal}
@@ -86,7 +86,7 @@ class SearchParams extends Component {
             value={this.state.breed}
             disabled={this.state.breeds.length === 0}
           >
-            <option />
+            <option value="">Any Breed</option>
             {this.state.breeds.map(breed => (
               <option key={breed} value={breed}>
                 {breed}
