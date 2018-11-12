@@ -64,7 +64,7 @@ header a {
   margin: 20px;
 }
 
-.search-params {
+.search-box {
   background-color: lightblue;
   border-radius: 6px;
   padding: 20px;
@@ -72,15 +72,15 @@ header a {
   flex-direction: column;
 }
 
-.search-params input,
-.search-params select {
+.search-box input,
+.search-box select {
   width: 300px;
   font-size: 16px;
   margin-left: 10px;
   margin-bottom: 12px;
 }
 
-.search-params button {
+.search-box button {
   font-size: 16px;
   align-self: center;
 }
