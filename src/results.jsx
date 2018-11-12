@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 import SearchBox from "./search-box.jsx";
-import Pet from "./pet.jsx";
+import { Consumer } from "./search-context.js";
 import petsAPI from "petfinder-client";
+import Pet from "./pet.jsx";
 
 const petFinder = petsAPI({
   key: process.env.API_KEY,
@@ -49,4 +50,10 @@ class Results extends Component {
   }
 }
 
-export default Results;
+const ResultsWithContext = props => (
+  <Consumer>
+    {context => <Results {...props} search-params={context} />}
+  </Consumer>
+);
+
+export default ResultsWithContext;
