@@ -80,7 +80,7 @@ header a {
   margin-bottom: 12px;
 }
 
-.search-box input[type="button"] {
+.search-box input[type="submit"] {
   width: 250px;
   background-color: lightgreen;
   align-self: center;

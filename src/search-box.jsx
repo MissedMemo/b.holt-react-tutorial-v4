@@ -58,7 +58,7 @@ class SearchBox extends Component {
                   ))}
                 </select>
               </label>
-              <input type="button" value="Submit" />
+              <input type="submit" value="Submit" />
             </form>
           </div>
         )}
