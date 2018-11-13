@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Sans-Serif;
 }
@@ -12,6 +16,12 @@ header a {
   font-size: 36px;
   text-decoration: none;
   color: slateblue;
+}
+
+header span {
+  border: 2px solid;
+  border-radius: 50%;
+  padding: 4px 6px;
 }
 
 .pet {
@@ -87,7 +97,13 @@ header a {
 }
 
 .search-box input[type="submit"] {
-  width: 250px;
-  background-color: lightgreen;
+  background-color: slateblue;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  text-decoration: none;
+  cursor: pointer;
   align-self: center;
 }
