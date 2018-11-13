@@ -2,6 +2,12 @@ body {
   font-family: Sans-Serif;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
 header a {
   font-size: 36px;
   text-decoration: none;
