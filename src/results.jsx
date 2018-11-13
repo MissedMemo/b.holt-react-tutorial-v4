@@ -20,20 +20,25 @@ class Results extends Component {
   };
 
   componentDidMount() {
+    this.search();
+  }
+
+  search = () => {
+    const { location, animal, breed } = this.props.searchParams;
     petFinder.pet
-      .find({ output: "full", location: "San Francisco, CA" })
+      .find({ output: "full", location, animal, breed })
       .then(data => {
         const pets = resolvePets(data.petfinder.pets);
         if (pets) {
           this.setState({ pets });
         }
       });
-  }
+  };
 
   render() {
     return (
       <div className="search">
-        <SearchBox />
+        <SearchBox search={this.search} />
         {this.state.pets.map(pet => (
           <Pet
             key={pet.id}
@@ -52,7 +57,7 @@ class Results extends Component {
 
 const ResultsWithContext = props => (
   <Consumer>
-    {context => <Results {...props} search-params={context} />}
+    {context => <Results {...props} searchParams={context} />}
   </Consumer>
 );
 
