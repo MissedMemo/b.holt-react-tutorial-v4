@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 const resolveImageUrl = media => {
   if (media && media.photos && media.photos.photo) {
     const photos = media.photos.photo.filter(p => p["@size"] === "pn");
-    return photos[0].value;
+    return photos[0].value || "http://placecorgi.com/300/300";
   }
 };
 
