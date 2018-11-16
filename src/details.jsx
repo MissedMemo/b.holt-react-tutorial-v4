@@ -14,7 +14,7 @@ const resolveBreed = breed => (Array.isArray(breed) ? breed.join(", ") : breed);
 class Details extends Component {
   state = {
     loading: true,
-    showModal: true
+    showModal: false
   };
 
   toggleModal = () => {
