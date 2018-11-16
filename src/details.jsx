@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import petsAPI from "petfinder-client";
 import { navigate } from "@reach/router";
 import Carousel from "./carousel.jsx";
+import Modal from "./modal.jsx";
 
 const petFinder = petsAPI({
   key: process.env.API_KEY,
@@ -12,7 +13,12 @@ const resolveBreed = breed => (Array.isArray(breed) ? breed.join(", ") : breed);
 
 class Details extends Component {
   state = {
-    loading: true
+    loading: true,
+    showModal: true
+  };
+
+  toggleModal = () => {
+    this.setState(s => ({ showModal: !s.showModal }));
   };
 
   componentDidMount() {
@@ -44,7 +50,8 @@ class Details extends Component {
       breed,
       location,
       description,
-      media
+      media,
+      showModal
     } = this.state;
     return loading ? (
       <h1>Loading...</h1>
@@ -56,7 +63,14 @@ class Details extends Component {
           <h2>
             {animal} - {breed} - {location}
           </h2>
+          <button onClick={this.toggleModal}>Adopt {name}?</button>
           <p>{description}</p>
+          {showModal ? (
+            <Modal>
+              <h1>Would you like to adopt {name}?</h1>
+              <button onClick={this.toggleModal}>Yes!</button>
+            </Modal>
+          ) : null}
         </div>
       </div>
     );
